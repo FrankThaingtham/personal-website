@@ -48,3 +48,62 @@ body {
 a {
   color: var(--link);
 }
+
+/* ----- simple layout helpers ----- */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 18px;
+}
+
+.h1 {
+  font-size: 44px;
+  margin: 0 0 10px;
+}
+
+.h2 {
+  font-size: 22px;
+  margin: 26px 0 10px;
+}
+
+.p {
+  max-width: 760px;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--muted);
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+/* ----- buttons & links ----- */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: inherit;
+  font-weight: 600;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav a:hover {
+  opacity: 0.9;
+}

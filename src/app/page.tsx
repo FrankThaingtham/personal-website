@@ -1,22 +1,14 @@
 export default function HomePage() {
   return (
     <>
-      <h1 style={{ fontSize: 44, margin: "0 0 10px" }}>Hi, I’m Frank.</h1>
+      <h1 className="h1">Hi, I’m Frank.</h1>
 
-      <p
-        style={{
-          fontSize: 18,
-          lineHeight: 1.7,
-          marginTop: 0,
-          maxWidth: 760,
-          color: "var(--muted)",
-        }}
-      >
+      <p className="p">
         I’m building projects in analytics, finance, and software — and sharing what I learn along the way.
       </p>
 
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
-        <a
+        <a className="btn"
           href="/about"
           style={{
             textDecoration: "none",
@@ -30,7 +22,7 @@ export default function HomePage() {
           About Me
         </a>
 
-        <a
+        <a className="btn"
           href="/projects"
           style={{
             textDecoration: "none",
@@ -44,7 +36,7 @@ export default function HomePage() {
           View Projects
         </a>
 
-        <a
+        <a className="btn"
           href="/contact"
           style={{
             textDecoration: "none",
@@ -60,7 +52,7 @@ export default function HomePage() {
       </div>
 
       <section style={{ marginTop: 34 }}>
-        <h2 style={{ marginBottom: 10 }}>Start here</h2>
+        <h2 className="h2">Start here</h2>
         <ul style={{ lineHeight: 1.9, paddingLeft: 18, marginTop: 0 }}>
           <li>
             <a href="/about">About</a> — my background + resume links
@@ -78,7 +70,7 @@ export default function HomePage() {
       </section>
 
       <section style={{ marginTop: 34 }}>
-        <h2 style={{ marginBottom: 10 }}>Now</h2>
+        <h2 className="h2">Now</h2>
         <ul style={{ lineHeight: 1.9, paddingLeft: 18, marginTop: 0, color: "var(--muted)" }}>
           <li>Building this website in Next.js + Cloudflare Pages</li>
           <li>Improving valuation skills (DCF + scenarios)</li>

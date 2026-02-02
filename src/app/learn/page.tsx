@@ -31,21 +31,12 @@ function StatusPill({ status }: { status: Item["status"] }) {
 export default function LearnPage() {
   return (
     <>
-      <h1 style={{ fontSize: 36, margin: "0 0 10px" }}>Learn</h1>
-      <p style={{ lineHeight: 1.7, maxWidth: 760, color: "var(--muted)" }}>
-        A lightweight learning log — what I’m working on and what’s next.
-      </p>
+      <h1 className="h1" style={{ fontSize: 36 }}>Learn</h1>
+      <p className="p">A lightweight learning log — what I’m working on and what’s next.</p>
 
-      <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
+      <div className="grid" style={{ marginTop: 22 }}>
         {items.map((it) => (
-          <div
-            key={it.title}
-            style={{
-              border: "1px solid var(--border)",
-              borderRadius: 14,
-              padding: 16,
-            }}
-          >
+          <div key={it.title} className="card">
             <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
               <h2 style={{ fontSize: 18, margin: 0 }}>{it.title}</h2>
               <StatusPill status={it.status} />

@@ -23,7 +23,7 @@ export default function RootLayout({
         }}
       >
         <header style={{ borderBottom: "1px solid var(--border, #eaeaea)" }}>
-          <nav
+          <nav className="nav"
             style={{
               maxWidth: 980,
               margin: "0 auto",

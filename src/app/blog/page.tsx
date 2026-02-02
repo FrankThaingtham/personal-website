@@ -2,7 +2,7 @@ type Post = {
   title: string;
   date: string; // YYYY-MM-DD
   summary: string;
-  href?: string; // later we’ll link to real posts
+  href?: string;
 };
 
 const posts: Post[] = [
@@ -21,21 +21,12 @@ const posts: Post[] = [
 export default function BlogPage() {
   return (
     <>
-      <h1 style={{ fontSize: 36, margin: "0 0 10px" }}>Blog</h1>
-      <p style={{ lineHeight: 1.7, maxWidth: 760, color: "var(--muted)" }}>
-        Longer writing and reflections. (Next step: real posts with MDX.)
-      </p>
+      <h1 className="h1" style={{ fontSize: 36 }}>Blog</h1>
+      <p className="p">Longer writing and reflections. (Next step: real posts with MDX.)</p>
 
-      <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
+      <div className="grid" style={{ marginTop: 22 }}>
         {posts.map((p) => (
-          <div
-            key={p.title}
-            style={{
-              border: "1px solid var(--border)",
-              borderRadius: 14,
-              padding: 16,
-            }}
-          >
+          <div key={p.title} className="card">
             <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
               <h2 style={{ fontSize: 18, margin: 0 }}>
                 {p.href ? <a href={p.href} style={{ textDecoration: "none" }}>{p.title}</a> : p.title}
