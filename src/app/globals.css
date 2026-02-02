@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+/* Base theme tokens (we’ll expand later for custom themes) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* app tokens used by layout.tsx */
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --border: #eaeaea;
+  --link: #111111;
+
+  /* future theme controls */
+  --font-body: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* keep compatibility with your existing setup */
+  --background: var(--bg);
+  --foreground: var(--text);
 }
 
 @theme inline {
+  /* Tailwind tokens (optional, but keep it) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* keep these if you later re-add Geist fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0b0b0c;
+    --text: #f3f3f3;
+    --muted: #a9a9a9;
+    --border: #2a2a2a;
+    --link: #f3f3f3;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+/* nice default link styling */
+a {
+  color: var(--link);
 }
