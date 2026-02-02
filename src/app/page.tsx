@@ -8,60 +8,27 @@ export default function HomePage() {
       </p>
 
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
-        <a className="btn"
-          href="/about"
-          style={{
-            textDecoration: "none",
-            border: "1px solid var(--border)",
-            padding: "10px 14px",
-            borderRadius: 12,
-            color: "inherit",
-            fontWeight: 600,
-          }}
-        >
-          About Me
-        </a>
-
-        <a className="btn"
-          href="/projects"
-          style={{
-            textDecoration: "none",
-            border: "1px solid var(--border)",
-            padding: "10px 14px",
-            borderRadius: 12,
-            color: "inherit",
-            fontWeight: 600,
-          }}
-        >
-          View Projects
-        </a>
-
-        <a className="btn"
-          href="/contact"
-          style={{
-            textDecoration: "none",
-            border: "1px solid var(--border)",
-            padding: "10px 14px",
-            borderRadius: 12,
-            color: "inherit",
-            fontWeight: 600,
-          }}
-        >
-          Contact
-        </a>
+        <a className="btn" href="/about">About</a>
+        <a className="btn" href="/projects">Projects</a>
+        <a className="btn" href="/research">Research</a>
+        <a className="btn" href="/reading">Reading</a>
+        <a className="btn" href="/contact">Contact</a>
       </div>
 
       <section style={{ marginTop: 34 }}>
         <h2 className="h2">Start here</h2>
         <ul style={{ lineHeight: 1.9, paddingLeft: 18, marginTop: 0 }}>
           <li>
-            <a href="/about">About</a> — my background + resume links
+            <a href="/about">About</a> — my background + links
           </li>
           <li>
             <a href="/projects">Projects</a> — things I’ve built
           </li>
           <li>
-            <a href="/learn">Learn</a> — my current learning log
+            <a href="/research">Research</a> — valuations and notes (process-focused)
+          </li>
+          <li>
+            <a href="/reading">Reading</a> — books + takeaways
           </li>
           <li>
             <a href="/blog">Blog</a> — longer writing

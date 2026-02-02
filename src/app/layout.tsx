@@ -34,33 +34,16 @@ export default function RootLayout({
               flexWrap: "wrap",
             }}
           >
-            <a
-              href="/"
-              style={{
-                fontWeight: 800,
-                textDecoration: "none",
-                color: "inherit",
-                marginRight: 6,
-              }}
-            >
+            <a href="/" style={{ fontWeight: 800, textDecoration: "none", color: "inherit", marginRight: 6 }}>
               Home
             </a>
 
-            <a href="/about" style={{ textDecoration: "none", color: "inherit" }}>
-              About
-            </a>
-            <a href="/projects" style={{ textDecoration: "none", color: "inherit" }}>
-              Projects
-            </a>
-            <a href="/learn" style={{ textDecoration: "none", color: "inherit" }}>
-              Learn
-            </a>
-            <a href="/blog" style={{ textDecoration: "none", color: "inherit" }}>
-              Blog
-            </a>
-            <a href="/contact" style={{ textDecoration: "none", color: "inherit" }}>
-              Contact
-            </a>
+            <a href="/about" style={{ textDecoration: "none", color: "inherit" }}>About</a>
+            <a href="/projects" style={{ textDecoration: "none", color: "inherit" }}>Projects</a>
+            <a href="/research" style={{ textDecoration: "none", color: "inherit" }}>Research</a>
+            <a href="/reading" style={{ textDecoration: "none", color: "inherit" }}>Reading</a>
+            <a href="/blog" style={{ textDecoration: "none", color: "inherit" }}>Blog</a>
+            <a href="/contact" style={{ textDecoration: "none", color: "inherit" }}>Contact</a>
           </nav>
         </header>
 
