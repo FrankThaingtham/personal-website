@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Photo = {
   src: string;   // put images in /public/photos
@@ -17,27 +17,33 @@ function shuffle<T>(arr: T[]) {
   return a;
 }
 
+// Unique by construction (shuffle + slice)
 function pickRandomN<T>(arr: T[], n: number) {
-  return shuffle(arr).slice(0, n);
+  const count = Math.min(n, arr.length);
+  return shuffle(arr).slice(0, count);
 }
 
 export default function PhotoShuffle() {
-  // ✅ “Photo vault” — add as many as you want here (10, 20, 50…)
-  // Put the actual files in: /public/photos/ (example: /public/photos/01.jpg)
   const vault: Photo[] = useMemo(
-    () => 
-        Array.from({ length: 50 }, (_, i) => {
-            const n = String(i + 1).padStart(2, "0"); // "01"..."50"
-            return { src: `/photos/${n}.webp`, alt: `Photo ${i + 1}` };
-        }),
+    () =>
+      Array.from({ length: 50 }, (_, i) => {
+        const n = String(i + 1).padStart(2, "0"); // "01"..."50"
+        return { src: `/photos/${n}.webp`, alt: `Photo ${i + 1}` };
+      }),
     []
   );
 
-  const [tiles, setTiles] = useState<Photo[]>(() => pickRandomN(vault, 5));
+  // ✅ Deterministic initial render (prevents hydration mismatch)
+  const [tiles, setTiles] = useState<Photo[]>(() => vault.slice(0, 5));
+
+  // ✅ Randomize only after mount (client-only)
+  useEffect(() => {
+    setTiles(pickRandomN(vault, 5));
+  }, [vault]);
 
   return (
     <section style={{ marginTop: 34 }}>
-      {/* FULL-BLEED wrapper (stretches edge-to-edge) */}
+      {/* FULL-BLEED wrapper */}
       <div
         style={{
           width: "100vw",
@@ -46,7 +52,6 @@ export default function PhotoShuffle() {
           padding: "0 18px",
         }}
       >
-        {/* 5 fixed square tiles spread across the whole viewport */}
         <div
           style={{
             display: "flex",
@@ -76,7 +81,7 @@ export default function PhotoShuffle() {
                     overflow: "hidden",
                     background: "rgba(255,255,255,0.02)",
 
-                    /* alternate tilt left/right */
+                    // alternate tilt left/right
                     transform: `rotate(${idx % 2 === 0 ? -2 : 2}deg)`,
                     transition: "transform 180ms ease, box-shadow 180ms ease",
                     boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
@@ -92,7 +97,6 @@ export default function PhotoShuffle() {
                       display: "block",
                     }}
                     onError={(e) => {
-                      // fallback if image file missing
                       const img = e.currentTarget;
                       img.style.display = "none";
                       const parent = img.parentElement as HTMLDivElement | null;
@@ -114,7 +118,11 @@ export default function PhotoShuffle() {
         </div>
 
         <div style={{ marginTop: 12, display: "flex", justifyContent: "center" }}>
-          <button type="button" className="btn" onClick={() => setTiles(pickRandomN(vault, 5))}>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => setTiles(pickRandomN(vault, 5))}
+          >
             🔀 Shuffle
           </button>
         </div>
