@@ -7,14 +7,9 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Project 1 (placeholder)",
-    description: "One sentence about what this is and what you built/learned.",
-    tags: ["Python", "SQL", "Dashboard"],
-  },
-  {
-    title: "Project 2 (placeholder)",
-    description: "One sentence about what problem it solves and your contribution.",
-    tags: ["Finance", "DCF", "Modeling"],
+    title: "Triangle Sports Analytics Competition — ACC Point Spread Model",
+    description: "Built a statistical model to predict ACC men’s basketball point spreads for the Triangle Sports Analytics Competition (Feb–Mar 2026). Focused on building a repeatable pipeline: data prep → features → model → predictions.",
+    tags: ["Python", "Pandas", "Sports Analytics", "Modeling", "Prediction"],
   },
 ];
 

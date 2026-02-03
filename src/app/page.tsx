@@ -51,7 +51,7 @@ export default function HomePage() {
           <div className="card" style={{ lineHeight: 1.7 }}>
             <div style={{ fontWeight: 800, marginBottom: 6 }}>Quick links</div>
             <div style={{ color: "var(--muted)", marginBottom: 12 }}>
-              Analytics + finance + software. I build and write in public.
+              Analytics + finance + software.
             </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 10 }}>

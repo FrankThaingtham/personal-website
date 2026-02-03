@@ -56,7 +56,7 @@ function applyTheme(bg: BgMode, text: TextColor) {
 }
 
 export default function ThemeControls() {
-  const [bg, setBg] = useState<BgMode>("light");
+  const [bg, setBg] = useState<BgMode>("dark");
   const [text, setText] = useState<TextColor>("default");
 
   // Load saved prefs on first render

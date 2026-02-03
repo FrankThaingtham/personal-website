@@ -35,41 +35,50 @@ export default function AboutPage() {
           {/* Story (right) */}
           <div>
             <p className="p" style={{ marginBottom: 12 }}>
-              I’m driven by one question: <span style={{ fontWeight: 700 }}>why do some ideas win?</span> Whether it’s a
-              company, a product, or a market move, I like tracing outcomes back to incentives, systems, and
-              fundamentals.
+              My name is Roengrit Thaingtham, but I go by <span style={{ fontWeight: 700 }}>Frank</span>. I’m graduating soon
+              from the <span style={{ fontWeight: 700 }}>University of North Carolina at Chapel Hill</span> with a B.S. in{" "}
+              <span style={{ fontWeight: 700 }}>Statistics & Analytics</span>.
             </p>
 
             <p className="p" style={{ marginBottom: 12 }}>
-              I have a dual perspective between the <span style={{ fontWeight: 700 }}>U.S. and Thailand</span>, and that
-              shapes how I think about global markets and technology — different consumer behaviors, different
-              constraints, and different opportunities. It keeps me grounded: what looks “obvious” in one place isn’t
-              always obvious in another.
+              I was born and raised in <span style={{ fontWeight: 700 }}>Thailand</span>, and I moved to the{" "}
+              <span style={{ fontWeight: 700 }}>U.S.</span> around age 12. That dual perspective shaped how I see people, markets,
+              and technology — what feels “normal” in one place isn’t always true somewhere else.
             </p>
 
-            <p className="p">
-              This site is where I document what I’m learning and building — from valuation notes and market research
-              to software projects — with the goal of becoming sharper at both analysis and execution.
+            <p className="p" style={{ marginBottom: 12 }}>
+              College challenged me in a way life never had before. I had to learn how to support myself financially, and I
+              worked through some personal struggles along the way. I’m not perfect — I’ve made mistakes — but I’m a{" "}
+              <span style={{ fontWeight: 700 }}>learner</span>, and I care about getting better.
             </p>
+
           </div>
         </div>
       </section>
       {/* 2) The Intersection (Niche) */}
       <section style={{ marginTop: 26 }}>
-        <h2 className="h2">My niche</h2>
+        <h2 className="h2">What I’m interested in</h2>
 
         <div className="card">
-          <p className="p" style={{ margin: 0 }}>
-            I’m most interested in the intersection of <span style={{ fontWeight: 700 }}>quantitative finance</span> and{" "}
-            <span style={{ fontWeight: 700 }}>software engineering</span>. I don’t just want to code for the sake of coding —
-            I want to build tools and systems that solve real problems: valuation workflows, research pipelines, decision
-            dashboards, and optimization-style questions.
+          <p className="p" style={{ margin: 0, maxWidth: "none" }}>
+            I’m most interested in the intersection of{" "}
+            <span style={{ fontWeight: 700 }}>analysis</span>,{" "}
+            <span style={{ fontWeight: 700 }}>technology</span>, and{" "}
+            <span style={{ fontWeight: 700 }}>finance</span>.
+            Coming from a low-income background where my parents didn’t have much financial knowledge, learning personal
+            finance was a turning point for me — it pulled me into finance and made me want to understand how money,
+            incentives, and markets really work.
           </p>
 
-          <p className="p" style={{ marginTop: 12, marginBottom: 0 }}>
-            That means I care about both sides: <span style={{ fontWeight: 700 }}>clear reasoning</span> (assumptions,
-            constraints, tradeoffs) and <span style={{ fontWeight: 700 }}>clean execution</span> (repeatable code, good
-            interfaces, and fast iteration).
+          <p className="p" style={{ marginTop: 12, marginBottom: 0, maxWidth: "none" }}>
+            Technology has also been a big part of my life. I grew up playing a lot of games, and over time I became more
+            curious about what technology can enable — and how to build it. And because life is ultimately a series of
+            decisions, I’m drawn to analytics as a way to think more clearly, reduce bias, and make better bets over time.
+          </p>
+
+          <p className="p" style={{ marginTop: 12, marginBottom: 0, maxWidth: "none" }}>
+            I don’t know exactly where the wind will blow, but I do know this: I’ll keep adapting, learning, and not giving
+            up.
           </p>
         </div>
       </section>
@@ -163,7 +172,6 @@ export default function AboutPage() {
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             {[
               "Gym",
-              "Running",
               "Hiking",
               "Soccer",
               "Basketball",
@@ -200,26 +208,86 @@ export default function AboutPage() {
           <div style={{ display: "grid", gap: 14 }}>
             {[
               {
-                when: "Now",
-                title: "Building projects at the finance × software intersection",
-                desc: "Documenting research, shipping portfolio work, and improving my valuation + engineering craft.",
+                when: "2026",
+                title: "Graduating — UNC–Chapel Hill (B.S. Statistics & Analytics)",
+                desc: "Coursework includes Probability, Time Series, Regression, Data Analysis, and applied analytics projects. Building projects across analytics, finance, and software while preparing for analyst roles.",
               },
               {
                 when: "2025",
-                title: "Studied abroad in Korea",
-                desc: "Gained a broader global perspective and sharpened my curiosity around markets and technology.",
+                title: "Studied abroad — Yonsei University (Korea)",
+                desc: "Lived and studied in Seoul, which expanded my perspective on culture, markets, and how technology shapes everyday life.",
               },
               {
-                when: "Education",
-                title: "B.S. in Statistics & Analytics (UNC)",
-                desc: "Focused on quantitative thinking, probability, and data-driven decision making.",
+                when: "2025",
+                title: "Technology Analyst Intern — Parexel",
+                desc: "Worked on technology-focused projects and learned how large organizations operate and deliver.",
+              },
+              {
+                when: "2024",
+                title: "Returned to Thailand + ordained as a monk (10 days)",
+                desc: "Went back to Thailand for the first time in 10 years. The experience strengthened my discipline, reflection, and perspective on what matters.",
+              },
+              {
+                when: "2023",
+                title: "Registration Services Assistant",
+                desc: "First college job — learned how to work in structured processes and handle details consistently.",
+              },
+              {
+                when: "2023",
+                title: "IT Support Technician",
+                desc: "Started IT support work — troubleshooting, reliability, and learning to stay calm under pressure.",
+              },
+              {
+                when: "2022",
+                title: "Started at UNC–Chapel Hill",
+                desc: "Entered college exploring business and computer science, but early setbacks pushed me to re-evaluate. I found my fit in Statistics & Analytics — a path that matched how I think: structured, quantitative, and decision-focused.",
+              },
+              {
+                when: "2022",
+                title: "Graduated high school",
+                desc: "Took the next step into college while continuing to work and support myself.",
+              },
+              {
+                when: "2022",
+                title: "State Farm Insurance Agent Office",
+                desc: "Customer-facing work that improved communication, responsibility, and day-to-day professionalism.",
+              },
+              {
+                when: "2021",
+                title: "Movie Theater Attendant",
+                desc: "Fast-paced service work — teamwork, reliability, and showing up consistently.",
+              },
+              {
+                when: "2021",
+                title: "Sushi chef",
+                desc: "Learned speed, precision, and standards — small details matter.",
+              },
+              {
+                when: "2020",
+                title: "Online Grocery Pickup",
+                desc: "Started working during COVID — learned discipline, pace, and responsibility early.",
+              },
+               {
+                when: "2015",
+                title: "Moved to Burlington, North Carolina",
+                desc: "Settled in NC around fifth grade and built my foundation there.",
+              },
+              {
+                when: "2013",
+                title: "Moved from Thailand to the United States (Miami, FL)",
+                desc: "Immigrated and began adapting to a new environment and culture — a turning point in how I view opportunity.",
+              },
+              {
+                when: "2003",
+                title: "Born in Chiang Rai, Thailand",
+                desc: "My roots — still a major part of how I see the world.",
               },
             ].map((x) => (
               <div
-                key={x.when}
+                key={`${x.when}-${x.title}`}
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "80px 1fr",
+                  gridTemplateColumns: "110px 1fr",
                   gap: 14,
                   alignItems: "start",
                 }}
@@ -227,7 +295,9 @@ export default function AboutPage() {
                 <div style={{ color: "var(--muted)", fontWeight: 700 }}>{x.when}</div>
                 <div>
                   <div style={{ fontWeight: 800 }}>{x.title}</div>
-                  <div style={{ color: "var(--muted)", marginTop: 4, lineHeight: 1.6 }}>{x.desc}</div>
+                  <div style={{ color: "var(--muted)", marginTop: 4, lineHeight: 1.6 }}>
+                    {x.desc}
+                  </div>
                 </div>
               </div>
             ))}
