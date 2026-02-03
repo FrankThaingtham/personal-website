@@ -12,9 +12,10 @@ export default config({
       label: "Posts",
       slugField: "title",
 
-      // ✅ IMPORTANT: keep directory + extension in sync with src/lib/posts.ts
-      path: "src/content/posts/*.mdx",
+      // ✅ must end with /* or /**
+      path: "src/content/posts/*",
 
+      // ✅ tell Keystatic this collection is MDX content
       format: { contentField: "content" },
 
       schema: {
