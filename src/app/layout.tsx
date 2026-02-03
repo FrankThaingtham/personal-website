@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeControls from "@/components/ThemeControls";
 
 export const metadata: Metadata = {
   title: "Frank Thaingtham",
@@ -22,7 +23,15 @@ export default function RootLayout({
           color: "var(--text, #111111)",
         }}
       >
-        <header style={{ borderBottom: "1px solid var(--border, #eaeaea)" }}>
+        <header   
+          style={{ 
+            position: "sticky",
+            top: 0,
+            zIndex: 50,
+            background: "var(--bg",
+            opacity: 1,
+            borderBottom: "1px solid var(--border, #eaeaea",
+            }}>
           <nav className="nav"
             style={{
               maxWidth: 980,
@@ -44,6 +53,7 @@ export default function RootLayout({
             <a href="/reading" style={{ textDecoration: "none", color: "inherit" }}>Reading</a>
             <a href="/blog" style={{ textDecoration: "none", color: "inherit" }}>Blog</a>
             <a href="/contact" style={{ textDecoration: "none", color: "inherit" }}>Contact</a>
+            <ThemeControls/>
           </nav>
         </header>
 

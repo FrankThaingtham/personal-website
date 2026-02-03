@@ -1,20 +1,14 @@
+import PhotoShuffle from "@/components/PhotoShuffle";
+
 export default function HomePage() {
   return (
     <>
       <h1 className="h1">Hi, I’m Frank.</h1>
 
       <p className="p">
-        I’m building projects in analytics, finance, and software — and sharing what I learn along the way.
+        I’m learning and building things I genuinely find interesting. I love analytics, finance, technology, and software — but most of all, I love learning. I share what I’m building, what I’m learning, and what I’m thinking about along the way. If you want to connect, feel free to <a href="/contact">reach out</a>.
       </p>
-
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
-        <a className="btn" href="/about">About</a>
-        <a className="btn" href="/projects">Projects</a>
-        <a className="btn" href="/research">Research</a>
-        <a className="btn" href="/reading">Reading</a>
-        <a className="btn" href="/contact">Contact</a>
-      </div>
-
+      <PhotoShuffle />
       <section style={{ marginTop: 34 }}>
         <h2 className="h2">Start here</h2>
         <ul style={{ lineHeight: 1.9, paddingLeft: 18, marginTop: 0 }}>
@@ -33,15 +27,6 @@ export default function HomePage() {
           <li>
             <a href="/blog">Blog</a> — longer writing
           </li>
-        </ul>
-      </section>
-
-      <section style={{ marginTop: 34 }}>
-        <h2 className="h2">Now</h2>
-        <ul style={{ lineHeight: 1.9, paddingLeft: 18, marginTop: 0, color: "var(--muted)" }}>
-          <li>Building this website in Next.js + Cloudflare Pages</li>
-          <li>Improving valuation skills (DCF + scenarios)</li>
-          <li>Shipping portfolio-ready analytics projects</li>
         </ul>
       </section>
     </>

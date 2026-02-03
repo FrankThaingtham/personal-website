@@ -47,6 +47,8 @@ body {
 /* nice default link styling */
 a {
   color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ----- simple layout helpers ----- */
