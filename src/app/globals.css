@@ -1,24 +1,32 @@
 @import "tailwindcss";
 
-/* Base theme tokens (we’ll expand later for custom themes) */
+/* ---------------------------
+   Theme tokens (controlled by ThemeControls)
+   --------------------------- */
 :root {
-  /* app tokens used by layout.tsx */
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #666666;
-  --border: #eaeaea;
-  --link: #111111;
+  --bg: #0b0b0c;
 
-  /* future theme controls */
+  /* Normal readable text */
+  --text: #f3f3f3;
+
+  /* Body/article text (keep readable even when accent changes) */
+  --bodyText: #e8e8e8;
+
+  --muted: #a9a9a9;
+  --border: #2a2a2a;
+
+  /* Accent + link (ThemeControls sets these) */
+  --accent: var(--text);
+  --link: var(--accent);
+
   --font-body: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-  /* keep compatibility with your existing setup */
+  /* Tailwind bridge */
   --background: var(--bg);
   --foreground: var(--text);
 }
 
 @theme inline {
-  /* Tailwind tokens (optional, but keep it) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -27,16 +35,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Optional: if you ever remove ThemeControls, at least this keeps dark by default */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b0b0c;
     --text: #f3f3f3;
+    --bodyText: #e8e8e8;
     --muted: #a9a9a9;
     --border: #2a2a2a;
-    --link: #f3f3f3;
+    --accent: var(--text);
+    --link: var(--accent);
   }
 }
 
+/* ---------------------------
+   Base layout
+   --------------------------- */
 body {
   background: var(--bg);
   color: var(--text);
@@ -44,28 +58,44 @@ body {
   margin: 0;
 }
 
-/* nice default link styling */
+/* Default links (nav + site links) use accent */
 a {
-  color: var(--link);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* ----- simple layout helpers ----- */
+/* Layout helpers */
 .container {
   max-width: 980px;
   margin: 0 auto;
   padding: 28px 18px;
 }
 
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+/* ---------------------------
+   Typography
+   --------------------------- */
 .h1 {
   font-size: 44px;
   margin: 0 0 10px;
+  color: var(--accent); /* titles follow your color picker */
 }
 
 .h2 {
   font-size: 22px;
   margin: 26px 0 10px;
+  color: var(--accent); /* section headings follow your color picker */
 }
 
 .p {
@@ -75,18 +105,9 @@ a {
   color: var(--muted);
 }
 
-.card {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
-}
-
-.grid {
-  display: grid;
-  gap: 12px;
-}
-
-/* ----- buttons & links ----- */
+/* ---------------------------
+   Buttons / nav
+   --------------------------- */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -95,6 +116,7 @@ a {
   border-radius: 12px;
   color: inherit;
   font-weight: 600;
+  background: transparent;
 }
 
 .btn:hover {
@@ -109,3 +131,92 @@ a {
 .nav a:hover {
   opacity: 0.9;
 }
+
+/* ---------------------------
+   Blog content (Markdoc output)
+   IMPORTANT: blog body stays readable (NOT accent)
+   --------------------------- */
+.prose {
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--bodyText);
+}
+
+/* paragraphs */
+.prose p {
+  margin: 0 0 14px;
+  color: var(--bodyText);
+}
+
+/* headings inside the post should be readable, not accent */
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--bodyText);
+  margin: 18px 0 8px;
+}
+
+.prose h2 {
+  font-size: 22px;
+  margin-top: 26px;
+}
+
+.prose h3 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* lists */
+.prose ul {
+  margin: 10px 0 14px;
+  padding-left: 18px;
+}
+
+.prose li {
+  margin: 6px 0;
+  color: var(--bodyText);
+}
+
+/* links INSIDE blog: readable (not blue) */
+.prose a {
+  color: var(--bodyText);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.9;
+}
+
+.prose a:hover {
+  opacity: 1;
+}
+
+/* code */
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 0.95em;
+}
+
+.prose pre {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.prose p,
+.prose li {
+  color: var(--bodyText);
+}
+
+/* Blog body links should NOT be accent-colored */
+.prose a {
+  color: var(--bodyText);
+  opacity: 0.9;
+}
+
+.prose a:hover {
+  opacity: 1;
+}
+

@@ -1,112 +1,107 @@
-type Post = {
-  title: string;
-  date: string; // YYYY-MM-DD
-  summary: string;
-  href?: string;
-};
-
-const posts: Post[] = [
-  {
-    title: "First post (placeholder)",
-    date: "2026-02-02",
-    summary: "What I’m building and how I’m thinking about this site.",
-  },
-  {
-    title: "Learning log: Week 1 (placeholder)",
-    date: "2026-02-02",
-    summary: "What I learned this week and what I’m doing next.",
-  },
-  // Add more later...
-];
+import { getAllPosts } from "@/lib/posts";
 
 function yearFromDate(date: string) {
-  // date is YYYY-MM-DD
   return date.slice(0, 4);
 }
 
-export default function BlogPage() {
-  // 1) sort newest -> oldest
-  const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+function monthDay(date: string) {
+  return date.slice(5); // YYYY-MM-DD -> MM-DD
+}
 
-  // 2) group by year
-  const grouped: Record<string, Post[]> = {};
-  for (const p of sorted) {
+export default function BlogPage() {
+  const posts = getAllPosts(); // [{ slug, title, date, summary }...]
+
+  // group by year
+  const grouped: Record<string, typeof posts> = {};
+  for (const p of posts) {
     const y = yearFromDate(p.date);
-    if (!grouped[y]) grouped[y] = [];
-    grouped[y].push(p);
+    (grouped[y] ||= []).push(p);
   }
 
-  const years = Object.keys(grouped).sort((a, b) => b.localeCompare(a)); // newest year first
+  const years = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
 
   return (
     <>
       <h1 className="h1" style={{ fontSize: 36 }}>
         Blog
       </h1>
-      <p className="p">Longer writing and reflections. (Next step: real posts with MDX.)</p>
+      <p className="p">Writing, learning logs, and thoughts.</p>
 
-      <div style={{ marginTop: 22, display: "grid", gap: 14 }}>
-        {years.map((year) => (
-          <div key={year} className="card">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "110px 1fr",
-                gap: 14,
-                alignItems: "start",
-              }}
-            >
-              {/* Far-left: year */}
-              <div style={{ color: "var(--muted)", fontWeight: 800, fontSize: 14 }}>
-                {year}
-              </div>
+      {posts.length === 0 ? (
+        <div className="card" style={{ marginTop: 18 }}>
+          <p className="p" style={{ margin: 0 }}>
+            No posts yet. Create one in{" "}
+            <a href="/keystatic" style={{ color: "var(--accent)" }}>
+              Keystatic
+            </a>
+            .
+          </p>
+        </div>
+      ) : (
+        <div style={{ marginTop: 22, display: "grid", gap: 22 }}>
+          {years.map((year) => (
+            <section key={year} className="card">
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "90px 1fr",
+                  gap: 18,
+                  alignItems: "start",
+                }}
+              >
+                {/* Far-left: year */}
+                <div style={{ color: "var(--muted)", fontWeight: 900, fontSize: 14 }}>
+                  {year}
+                </div>
 
-              {/* Right: all posts for that year */}
-              <div style={{ display: "grid", gap: 12 }}>
-                {grouped[year].map((p) => (
-                  <div
-                    key={`${p.date}-${p.title}`}
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "110px 1fr",
-                      gap: 14,
-                      alignItems: "start",
-                    }}
-                  >
-                    {/* Left inside year group: date */}
-                    <div style={{ color: "var(--muted)", fontSize: 12, fontWeight: 700 }}>
-                      {p.date}
-                    </div>
+                {/* Right: posts for that year */}
+                <div style={{ display: "grid" }}>
+                  {grouped[year].map((p, idx) => (
+                    <div
+                      key={p.slug}
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "70px 1fr",
+                        gap: 16,
+                        padding: idx === 0 ? 0 : "14px 0 0",
+                        marginTop: idx === 0 ? 0 : 14,
+                        borderTop: idx === 0 ? "none" : "1px solid var(--border)",
+                        alignItems: "start",
+                      }}
+                    >
+                      {/* Date within year group */}
+                      <div style={{ color: "var(--muted)", fontSize: 12, fontWeight: 800 }}>
+                        {monthDay(p.date)}
+                      </div>
 
-                    {/* Right: title + summary */}
-                    <div>
-                      <div style={{ fontSize: 18, fontWeight: 800, lineHeight: 1.2 }}>
-                        {p.href ? (
+                      {/* Title + summary */}
+                      <div>
+                        <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.2 }}>
                           <a
-                            href={p.href}
+                            href={`/blog/${p.slug}`}
                             style={{
-                              textDecoration: "none",
-                              color: "inherit",
+                              color: "var(--accent)", // ✅ accent color
+                              textDecoration: "underline",
+                              textUnderlineOffset: 3,
+                              textDecorationThickness: "from-font",
                             }}
                           >
                             {p.title}
                           </a>
-                        ) : (
-                          p.title
-                        )}
-                      </div>
+                        </div>
 
-                      <div style={{ marginTop: 6, color: "var(--muted)", lineHeight: 1.6 }}>
-                        {p.summary}
+                        <div style={{ marginTop: 6, color: "var(--muted)", lineHeight: 1.6 }}>
+                          {p.summary}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            </section>
+          ))}
+        </div>
+      )}
     </>
   );
 }

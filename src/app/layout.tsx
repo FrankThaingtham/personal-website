@@ -21,6 +21,11 @@ export default function RootLayout({
             "var(--font-body, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif)",
           background: "var(--bg, #ffffff)",
           color: "var(--text, #111111)",
+
+          // ✅ Sticky footer layout
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <header
@@ -49,29 +54,29 @@ export default function RootLayout({
               style={{
                 fontWeight: 800,
                 textDecoration: "none",
-                color: "inherit",
+                color: "var(--accent)",
                 marginRight: 6,
               }}
             >
               Home
             </a>
 
-            <a href="/about" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/about" style={{ textDecoration: "none", color: "var(--accent)" }}>
               About
             </a>
-            <a href="/projects" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/projects" style={{ textDecoration: "none", color: "var(--accent)" }}>
               Projects
             </a>
-            <a href="/research" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/research" style={{ textDecoration: "none", color: "var(--accent)" }}>
               Research
             </a>
-            <a href="/reading" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/reading" style={{ textDecoration: "none", color: "var(--accent)" }}>
               Reading
             </a>
-            <a href="/blog" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/blog" style={{ textDecoration: "none", color: "var(--accent)" }}>
               Blog
             </a>
-            <a href="/contact" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/contact" style={{ textDecoration: "none", color: "var(--accent)" }}>
               Contact
             </a>
 
@@ -79,11 +84,29 @@ export default function RootLayout({
           </nav>
         </header>
 
-        <main style={{ maxWidth: 980, margin: "0 auto", padding: "28px 18px" }}>
+        <main
+          style={{
+            maxWidth: 980,
+            margin: "0 auto",
+            padding: "28px 18px",
+
+            // ✅ makes footer stick to bottom on short pages
+            width: "100%",
+            flex: 1,
+          }}
+        >
           {children}
         </main>
 
-        <footer style={{ borderTop: "1px solid var(--border)", marginTop: 40 }}>
+        <footer
+          style={{
+            borderTop: "1px solid var(--border)",
+            marginTop: 40,
+
+            // ✅ prevent footer from shrinking
+            flexShrink: 0,
+          }}
+        >
           <div
             style={{
               maxWidth: 980,
