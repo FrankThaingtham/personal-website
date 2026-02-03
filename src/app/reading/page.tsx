@@ -31,7 +31,6 @@ const books: Book[] = [
     status: "Reading",
     note: "Valuation frameworks + drivers.",
   },
-
   {
     title: "Crucial Conversations: Tools for Talking When Stakes Are High (Third Edition)",
     author: "Joseph Grenny; Kerry Patterson; Ron McMillan; Al Switzler; Emily Gregory",
