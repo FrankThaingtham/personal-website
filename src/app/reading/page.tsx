@@ -7,23 +7,36 @@ type Book = {
 };
 
 const books: Book[] = [
-  {
-    title: "What Color Is Your Parachute?",
-    author: "Richard N. Bolles",
-    status: "Reading",
-    note: "Career clarity + job-search strategy.",
+   {
+    title: "The Untethered Soul: The Journey Beyond Yourself",
+    author: "Michael A. Singer",
+    status: "Finished",
+    note: "Mindfulness, awareness, and letting go.",
   },
   {
-    title: "One Up On Wall Street",
-    author: "Peter Lynch",
-    status: "Next",
-    note: "How to think about finding great companies.",
+    title: "The Mountain Is You",
+    author: "Brianna Wiest",
+    status: "Finished",
+    note: "Self-sabotage → self-mastery; emotional growth.",
   },
   {
+    title: "Attached: The New Science of Adult Attachment and How It Can Help You Find—and Keep—Love",
+    author: "Amir Levine; Rachel Heller",
+    status: "Finished",
+    note: "Attachment styles + relationship patterns.",
+  },
+   {
     title: "The Little Book of Valuation",
     author: "Aswath Damodaran",
-    status: "Finished",
+    status: "Reading",
     note: "Valuation frameworks + drivers.",
+  },
+
+  {
+    title: "Crucial Conversations: Tools for Talking When Stakes Are High (Third Edition)",
+    author: "Joseph Grenny; Kerry Patterson; Ron McMillan; Al Switzler; Emily Gregory",
+    status: "Reading",
+    note: "Communication under pressure; high-stakes conversations.",
   },
 ];
 
