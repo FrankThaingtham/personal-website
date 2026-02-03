@@ -15,10 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/reading",
     "/blog",
     "/contact",
-    // "/resume.pdf", // optional: uncomment if you want the PDF indexed
   ];
 
-  // Use one timestamp for the whole sitemap build (fine for small sites)
   const lastModified = new Date();
 
   return routes.map((path) => ({
