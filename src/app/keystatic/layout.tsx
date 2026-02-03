@@ -1,6 +1,16 @@
-import KeystaticApp from "./keystatic";
+// src/app/keystatic/layout.tsx
 export const runtime = "edge";
 
-export default function Layout() {
-  return <KeystaticApp />;
+import type { ReactNode } from "react";
+import KeystaticApp from "./keystatic";
+
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    <html>
+      <body>
+        <KeystaticApp />
+        {children}
+      </body>
+    </html>
+  );
 }
