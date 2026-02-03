@@ -3,9 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 
 type Photo = {
-  src: string;   // put images in /public/photos
+  src: string; // /public/photos/xx.webp
   alt: string;
-  href?: string; // optional: click goes somewhere (otherwise opens image)
 };
 
 function shuffle<T>(arr: T[]) {
@@ -17,7 +16,6 @@ function shuffle<T>(arr: T[]) {
   return a;
 }
 
-// Unique by construction (shuffle + slice)
 function pickRandomN<T>(arr: T[], n: number) {
   const count = Math.min(n, arr.length);
   return shuffle(arr).slice(0, count);
@@ -27,7 +25,7 @@ export default function PhotoShuffle() {
   const vault: Photo[] = useMemo(
     () =>
       Array.from({ length: 50 }, (_, i) => {
-        const n = String(i + 1).padStart(2, "0"); // "01"..."50"
+        const n = String(i + 1).padStart(2, "0");
         return { src: `/photos/${n}.webp`, alt: `Photo ${i + 1}` };
       }),
     []
@@ -36,41 +34,57 @@ export default function PhotoShuffle() {
   // ✅ Deterministic initial render (prevents hydration mismatch)
   const [tiles, setTiles] = useState<Photo[]>(() => vault.slice(0, 5));
 
+  // lightbox state
+  const [active, setActive] = useState<Photo | null>(null);
+
   // ✅ Randomize only after mount (client-only)
   useEffect(() => {
     setTiles(pickRandomN(vault, 5));
   }, [vault]);
 
+  // close on ESC
+  useEffect(() => {
+    if (!active) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
   return (
-    <section style={{ marginTop: 34 }}>
-      {/* FULL-BLEED wrapper */}
-      <div
-        style={{
-          width: "100vw",
-          marginLeft: "calc(50% - 50vw)",
-          marginRight: "calc(50% - 50vw)",
-          padding: "0 18px",
-        }}
-      >
+    <>
+      <section style={{ marginTop: 34 }}>
+        {/* FULL-BLEED wrapper */}
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: 18,
+            width: "100vw",
+            marginLeft: "calc(50% - 50vw)",
+            marginRight: "calc(50% - 50vw)",
+            padding: "0 18px",
           }}
         >
-          {tiles.map((p, idx) => {
-            const clickable = p.href ?? p.src;
-
-            return (
-              <a
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: 18,
+            }}
+          >
+            {tiles.map((p, idx) => (
+              <button
                 key={p.src}
-                href={clickable}
-                target={p.href ? "_blank" : undefined}
-                rel={p.href ? "noreferrer" : undefined}
-                style={{ textDecoration: "none", flex: "0 0 auto" }}
+                type="button"
+                onClick={() => setActive(p)}
                 aria-label={`Open ${p.alt}`}
                 title={p.alt}
+                style={{
+                  border: "none",
+                  background: "transparent",
+                  padding: 0,
+                  cursor: "pointer",
+                  flex: "0 0 auto",
+                }}
               >
                 <div
                   style={{
@@ -112,21 +126,88 @@ export default function PhotoShuffle() {
                     }}
                   />
                 </div>
-              </a>
-            );
-          })}
-        </div>
+              </button>
+            ))}
+          </div>
 
-        <div style={{ marginTop: 12, display: "flex", justifyContent: "center" }}>
-          <button
-            type="button"
-            className="btn"
-            onClick={() => setTiles(pickRandomN(vault, 5))}
-          >
-            🔀 Shuffle
-          </button>
+          <div style={{ marginTop: 12, display: "flex", justifyContent: "center" }}>
+            <button type="button" className="btn" onClick={() => setTiles(pickRandomN(vault, 5))}>
+              🔀 Shuffle
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* LIGHTBOX / MODAL */}
+      {active ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Photo preview"
+          onClick={() => setActive(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 1000,
+            background: "rgba(0,0,0,0.75)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+          }}
+        >
+          {/* Stop click from closing when clicking the image area */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: "min(960px, 92vw)",
+              borderRadius: 18,
+              border: "1px solid rgba(255,255,255,0.15)",
+              overflow: "hidden",
+              background: "rgba(15,15,15,0.9)",
+              boxShadow: "0 18px 60px rgba(0,0,0,0.55)",
+            }}
+          >
+            <div style={{ background: "black", position: "relative" }}>
+              <button
+                type="button"
+                onClick={() => setActive(null)}
+                aria-label="Close"
+                title="Close"
+                style={{
+                  position: "absolute",
+                  top: 12,
+                  right: 12,
+                  width: 36,
+                  height: 36,
+                  borderRadius: 999,
+                  border: "1px solid rgba(255,255,255,0.25)",
+                  background: "rgba(0,0,0,0.55)",
+                  color: "white",
+                  cursor: "pointer",
+                  display: "grid",
+                  placeItems: "center",
+                  lineHeight: 1,
+                }}
+              >
+                ✕
+              </button>
+
+              <img
+                src={active.src}
+                alt=""
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "80vh",
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }
