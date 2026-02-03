@@ -23,16 +23,17 @@ export default function RootLayout({
           color: "var(--text, #111111)",
         }}
       >
-        <header   
-          style={{ 
+        <header
+          style={{
             position: "sticky",
             top: 0,
             zIndex: 50,
-            background: "var(--bg",
-            opacity: 1,
-            borderBottom: "1px solid var(--border, #eaeaea",
-            }}>
-          <nav className="nav"
+            backgroundColor: "var(--bg)",
+            borderBottom: "1px solid var(--border)",
+          }}
+        >
+          <nav
+            className="nav"
             style={{
               maxWidth: 980,
               margin: "0 auto",
@@ -43,17 +44,38 @@ export default function RootLayout({
               flexWrap: "wrap",
             }}
           >
-            <a href="/" style={{ fontWeight: 800, textDecoration: "none", color: "inherit", marginRight: 6 }}>
+            <a
+              href="/"
+              style={{
+                fontWeight: 800,
+                textDecoration: "none",
+                color: "inherit",
+                marginRight: 6,
+              }}
+            >
               Home
             </a>
 
-            <a href="/about" style={{ textDecoration: "none", color: "inherit" }}>About</a>
-            <a href="/projects" style={{ textDecoration: "none", color: "inherit" }}>Projects</a>
-            <a href="/research" style={{ textDecoration: "none", color: "inherit" }}>Research</a>
-            <a href="/reading" style={{ textDecoration: "none", color: "inherit" }}>Reading</a>
-            <a href="/blog" style={{ textDecoration: "none", color: "inherit" }}>Blog</a>
-            <a href="/contact" style={{ textDecoration: "none", color: "inherit" }}>Contact</a>
-            <ThemeControls/>
+            <a href="/about" style={{ textDecoration: "none", color: "inherit" }}>
+              About
+            </a>
+            <a href="/projects" style={{ textDecoration: "none", color: "inherit" }}>
+              Projects
+            </a>
+            <a href="/research" style={{ textDecoration: "none", color: "inherit" }}>
+              Research
+            </a>
+            <a href="/reading" style={{ textDecoration: "none", color: "inherit" }}>
+              Reading
+            </a>
+            <a href="/blog" style={{ textDecoration: "none", color: "inherit" }}>
+              Blog
+            </a>
+            <a href="/contact" style={{ textDecoration: "none", color: "inherit" }}>
+              Contact
+            </a>
+
+            <ThemeControls />
           </nav>
         </header>
 
@@ -61,17 +83,46 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer style={{ borderTop: "1px solid var(--border, #eaeaea)", marginTop: 40 }}>
+        <footer style={{ borderTop: "1px solid var(--border)", marginTop: 40 }}>
           <div
             style={{
               maxWidth: 980,
               margin: "0 auto",
               padding: "18px",
               fontSize: 14,
-              color: "var(--muted, #666666)",
+              color: "var(--muted)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 12,
+              flexWrap: "wrap",
             }}
           >
-            © {new Date().getFullYear()} Frank Thaingtham
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+              <a href="mailto:frankthaingtham@hotmail.com" style={{ textDecoration: "underline" }}>
+                Email
+              </a>
+              <a
+                href="https://github.com/frankthaingtham"
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/frankthaingtham/"
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                LinkedIn
+              </a>
+            </div>
+
+            <div>
+              © {new Date().getFullYear()} Frank — Built with Next.js + TypeScript + Cloudflare Pages.
+            </div>
           </div>
         </footer>
       </body>
