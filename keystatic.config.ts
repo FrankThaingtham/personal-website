@@ -1,5 +1,5 @@
-import { config } from "@keystatic/core";
-import { fields, collection } from "@keystatic/core";
+import { config, collection } from "@keystatic/core";
+import { fields } from "@keystatic/core";
 
 export default config({
   storage: {
@@ -11,17 +11,17 @@ export default config({
     posts: collection({
       label: "Posts",
       slugField: "title",
-      path: "content/posts/*",
+
+      // ✅ IMPORTANT: keep directory + extension in sync with src/lib/posts.ts
+      path: "src/content/posts/*.mdx",
+
       format: { contentField: "content" },
+
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
-        excerpt: fields.text({
-          label: "Excerpt",
-          multiline: true,
-          validation: { length: { max: 200 } },
-        }),
         date: fields.date({ label: "Date" }),
-        content: fields.markdoc({ label: "Content" }),
+        summary: fields.text({ label: "Summary", multiline: true }),
+        content: fields.mdx({ label: "Content" }),
       },
     }),
   },

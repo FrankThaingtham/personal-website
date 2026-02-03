@@ -13,8 +13,8 @@ export type PostFull = PostMeta & {
   content: string;
 };
 
-
 const POSTS_DIR = path.join(process.cwd(), "src", "content", "posts");
+const EXT = ".mdx";
 
 function normalizeDate(input: unknown): string {
   // Keystatic/gray-matter may give Date objects
@@ -35,12 +35,10 @@ function normalizeDate(input: unknown): string {
 export function getAllPosts(): PostMeta[] {
   if (!fs.existsSync(POSTS_DIR)) return [];
 
-  const files = fs
-    .readdirSync(POSTS_DIR)
-    .filter((f) => f.endsWith(".mdoc"));
+  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(EXT));
 
   const posts = files.map((file) => {
-    const slug = file.replace(/\.mdoc$/, "");
+    const slug = file.replace(new RegExp(`${EXT}$`), "");
     const fullPath = path.join(POSTS_DIR, file);
 
     const raw = fs.readFileSync(fullPath, "utf8");
@@ -61,7 +59,7 @@ export function getAllPosts(): PostMeta[] {
 
 export function getPostBySlug(slug: string): PostFull | null {
   const safeSlug = decodeURIComponent(slug);
-  const fullPath = path.join(POSTS_DIR, `${safeSlug}.mdoc`);
+  const fullPath = path.join(POSTS_DIR, `${safeSlug}${EXT}`);
 
   if (!fs.existsSync(fullPath)) return null;
 
@@ -76,4 +74,3 @@ export function getPostBySlug(slug: string): PostFull | null {
     content: String(content ?? ""),
   };
 }
-
