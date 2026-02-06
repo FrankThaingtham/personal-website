@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeControls from "@/components/ThemeControls";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Frank Thaingtham",
@@ -15,6 +15,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZY5MCCCS4D"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZY5MCCCS4D');
+          `}
+        </Script>
+      </head>
+
       <body
         style={{
           margin: 0,
@@ -90,8 +106,6 @@ export default function RootLayout({
             maxWidth: 980,
             margin: "0 auto",
             padding: "28px 18px",
-
-            // ✅ makes footer stick to bottom on short pages
             width: "100%",
             flex: 1,
           }}
@@ -103,8 +117,6 @@ export default function RootLayout({
           style={{
             borderTop: "1px solid var(--border)",
             marginTop: 40,
-
-            // ✅ prevent footer from shrinking
             flexShrink: 0,
           }}
         >
@@ -148,9 +160,6 @@ export default function RootLayout({
           </div>
         </footer>
       </body>
-
-      {/* ✅ GA4 */}
-      <GoogleAnalytics gaId="G-ZY5MCCCS4D" />
     </html>
   );
 }
