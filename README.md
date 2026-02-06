@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FrankThaingtham.com — Personal Website
 
-## Getting Started
+My personal website + blog + portfolio hub.
 
-First, run the development server:
+Live: https://frankthaingtham.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Built to be fast, clean, and easy to update — with a lightweight content workflow (Keystatic) and static deployment on Cloudflare Pages.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What’s inside
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Pages: Home, About, Projects, Research, Reading, Blog, Contact
+- Writing / content: Blog + notes (managed via Keystatic)
+- UI: Theme controls + simple, minimal components
+- Deployment: Static export → Cloudflare Pages
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- TypeScript
+- Keystatic (content editing)
+- Cloudflare Pages (hosting)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Local Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1) Install dependencies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    npm install
+
+2) Run the dev server
+
+    npm run dev
+
+Open:
+- http://localhost:3000
+
+3) Content admin (Keystatic)
+
+With the dev server running, open:
+- http://127.0.0.1:3000/keystatic
+
+Note: Keystatic is intended for local editing. Commit content changes to the repo.
+
+---
+
+## Build & Deploy
+
+This project is deployed as a static export.
+
+Build locally:
+
+    npm run build
+
+Static output is generated in:
+- out/
+
+Cloudflare Pages settings:
+- Build command: npx next build
+- Build output directory: out
+- Production branch: main
+
+---
+
+## Project Structure (high-level)
+
+    /
+    ├─ src/
+    │  ├─ app/                  # routes + pages (Next.js App Router)
+    │  ├─ components/           # UI components
+    │  ├─ content/              # content files (posts/notes/etc.)
+    │  └─ styles/               # global + component styles
+    ├─ public/                  # images, favicon, static assets
+    ├─ keystatic.config.*       # content schema
+    ├─ next.config.*            # static export config
+    └─ package.json
+
+---
+
+## Roadmap
+
+- [ ] Add more writeups to Research
+- [ ] Add “Financial/Valuation Analytics Dashboard” project page + screenshots
+- [ ] Improve SEO (OG images per post, sitemap polish)
+- [ ] Add more structured content types (e.g., notes, book highlights)
+
+---
+
+## License
+
+All site content is © Frank Thaingtham unless otherwise noted.
+Code is available for learning/reference — please don’t copy branding/content verbatim.
