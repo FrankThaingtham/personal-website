@@ -10,8 +10,22 @@ const projects: Project[] = [
     title: "FrankThaingtham.com — Personal Site + Blog CMS",
     description:
       "Built and deployed my personal website with a blog workflow so I can publish posts from the web. Includes a clean Next.js frontend, a Keystatic admin panel, and Cloudflare Pages hosting + domain setup.",
-    tags: ["Next.js", "TypeScript", "Keystatic", "Cloudflare Pages", "GitHub"],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Keystatic",
+      "Cloudflare Pages",
+      "GitHub",
+      "Google Analytics (GA4)",
+    ],
     href: "https://github.com/FrankThaingtham/personal-website",
+  },
+  {
+    title: "Financial / Valuation Analytics Dashboard — SQL → Power BI",
+    description:
+      "Built an end-to-end analytics pipeline that turns annual financial statement inputs + valuation assumptions into cleaned Postgres tables, KPI SQL views, and a Power BI dashboard with comps + DCF scenario valuation outputs (Base/Bull/Bear).",
+    tags: ["Postgres", "SQL", "Power BI", "DCF", "Data Modeling", "Analytics"],
+    href: "https://github.com/FrankThaingtham/financial-valuation-dashboard",
   },
   {
     title: "Triangle Sports Analytics Competition — ACC Point Spread Model",
@@ -115,6 +129,35 @@ export default function ProjectsPage() {
                 <li>
                   <strong>Infra:</strong> Cloudflare Pages deploys + domain +
                   DNS + Access protection for /keystatic.
+                </li>
+                <li>
+                  <strong>Analytics:</strong> Integrated Google Analytics (GA4)
+                  to measure traffic and engagement.
+                </li>
+              </ul>
+            ) : null}
+
+            {/* Extra detail only for the Financial/Valuation Dashboard project */}
+            {p.title.includes("Financial / Valuation Analytics Dashboard") ? (
+              <ul
+                style={{
+                  margin: "0 0 12px 18px",
+                  color: "var(--muted)",
+                  lineHeight: 1.6,
+                }}
+              >
+                <li>
+                  <strong>Data model:</strong> Postgres dim/fact tables + staging
+                  loads for annual financials and scenario assumptions.
+                </li>
+                <li>
+                  <strong>KPI layer:</strong> SQL views (e.g., YoY revenue growth,
+                  FCF margin, latest-year comps) + basic data quality checks.
+                </li>
+                <li>
+                  <strong>Valuation:</strong> 5-year DCF with Base/Bull/Bear
+                  scenarios and intrinsic value per share written back to Postgres
+                  for Power BI consumption.
                 </li>
               </ul>
             ) : null}
