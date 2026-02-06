@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeControls from "@/components/ThemeControls";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Frank Thaingtham",
@@ -143,12 +144,13 @@ export default function RootLayout({
               </a>
             </div>
 
-            <div>
-              © {new Date().getFullYear()} Frank — Built with Next.js + TypeScript + Cloudflare Pages.
-            </div>
+            <div>© {new Date().getFullYear()} Frank — Built with Next.js + TypeScript + Cloudflare Pages.</div>
           </div>
         </footer>
       </body>
+
+      {/* ✅ GA4 */}
+      <GoogleAnalytics gaId="G-ZY5MCCCS4D" />
     </html>
   );
 }
