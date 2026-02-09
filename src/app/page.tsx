@@ -1,4 +1,5 @@
 import PhotoShuffle from "@/components/PhotoShuffle";
+import TrackableLink from '@/components/TrackableLink';
 
 export default function HomePage() {
   return (
@@ -55,9 +56,13 @@ export default function HomePage() {
             </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 10 }}>
-              <a href="/resume.pdf" style={{ fontWeight: 700 }}>
-                Resume →
-              </a>
+              <TrackableLink
+                href="/resume.pdf"
+                eventName="resume_clicked"
+                style={{ textDecoration: "underline" }}
+              >
+                Resume
+              </TrackableLink>
               <a href="https://github.com/frankthaingtham" target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
                 GitHub →
               </a>
