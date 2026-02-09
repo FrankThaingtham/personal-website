@@ -1,6 +1,7 @@
 // app/dashboard/page.tsx
 import { redirect } from 'next/navigation';
 import { supabaseAdmin } from '@/lib/supabase';
+export const runtime = 'edge';
 
 // Simple password protection via query param
 function checkAuth(searchParams: { key?: string }) {

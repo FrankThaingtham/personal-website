@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 import { getOrCreateVisitorId } from '@/lib/visitor';
+export const runtime = 'edge';
 
 export async function POST(request: NextRequest) {
   try {
