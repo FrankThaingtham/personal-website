@@ -49,7 +49,7 @@ export default function ContactPage() {
         <p style={{ margin: 0 }}>
           <strong>Instagram (spam):</strong>{" "}
           <a
-            href="https://www.instagram.com/letmefrankt"
+            href="https://www.instagram.com/letmebefrankt"
             target="_blank"
             rel="noreferrer"
           >
