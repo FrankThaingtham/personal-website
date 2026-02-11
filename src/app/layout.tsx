@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ThemeControls from "@/components/ThemeControls";
 import OnboardingGate from "@/components/OnboardingGate";
+import ChatWidget from "@/components/ChatWidget";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -161,6 +162,9 @@ export default function RootLayout({
               <div>© {new Date().getFullYear()} Frank – Built with Next.js + TypeScript + Cloudflare Pages.</div>
             </div>
           </footer>
+
+          {/* Chat Widget - appears on every page */}
+          <ChatWidget />
         </OnboardingGate>
       </body>
     </html>

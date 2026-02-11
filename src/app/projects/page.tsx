@@ -7,6 +7,34 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "Portfolio Chatbot — AI Assistant with RAG",
+    description:
+      "Built an AI chatbot for my personal website that answers questions about my background, projects, and experience. Uses OpenAI's Assistants API with file search (RAG) to query a knowledge base of my resume, projects, and blog posts. Adapts tone based on visitor type (recruiter vs casual).",
+    tags: [
+      "OpenAI Assistants API",
+      "RAG (Vector Store)",
+      "Next.js API Routes",
+      "TypeScript",
+      "Supabase",
+      "Edge Runtime",
+    ],
+    href: "https://github.com/FrankThaingtham/personal-website",
+  },
+  {
+    title: "Website Onboarding + Supabase Analytics — Visitor Intelligence",
+    description:
+      "Implemented a 3-phase analytics system for my portfolio site: (1) onboarding modal to capture visitor intent, (2) Supabase database with event tracking and conversion funnels, (3) analytics dashboard with role segmentation and engagement metrics. Tracks everything from first visit through chat interactions.",
+    tags: [
+      "Supabase (Postgres)",
+      "Next.js",
+      "TypeScript",
+      "Analytics Engineering",
+      "Conversion Funnels",
+      "SQL Views",
+    ],
+    href: "https://github.com/FrankThaingtham/personal-website",
+  },
+  {
     title: "FrankThaingtham.com — Personal Site + Blog CMS",
     description:
       "Built and deployed my personal website with a blog workflow so I can publish posts from the web. Includes a clean Next.js frontend, a Keystatic admin panel, and Cloudflare Pages hosting + domain setup.",
@@ -108,6 +136,54 @@ export default function ProjectsPage() {
             >
               {p.description}
             </p>
+
+            {/* Extra detail only for the Portfolio Chatbot project */}
+            {p.title.includes("Portfolio Chatbot") ? (
+              <ul
+                style={{
+                  margin: "0 0 12px 18px",
+                  color: "var(--muted)",
+                  lineHeight: 1.6,
+                }}
+              >
+                <li>
+                  <strong>AI Architecture:</strong> OpenAI Assistants API with file_search tool, vector store with 6 knowledge base files (about, projects, roles, FAQ, blog excerpts, voice examples).
+                </li>
+                <li>
+                  <strong>Adaptive Voice:</strong> Two response modes (recruiter: professional/concise, casual: friendly/conversational) based on onboarding data.
+                </li>
+                <li>
+                  <strong>Smart Features:</strong> Confidence scoring (high/medium/low), next-action buttons (View Projects, Resume, Contact), fallback to phone contact for low-confidence responses.
+                </li>
+                <li>
+                  <strong>Persistence:</strong> Chat sessions and message history stored in Supabase, conversation context limited to last 12 messages for cost efficiency.
+                </li>
+              </ul>
+            ) : null}
+
+            {/* Extra detail only for the Analytics project */}
+            {p.title.includes("Website Onboarding + Supabase Analytics") ? (
+              <ul
+                style={{
+                  margin: "0 0 12px 18px",
+                  color: "var(--muted)",
+                  lineHeight: 1.6,
+                }}
+              >
+                <li>
+                  <strong>Onboarding Flow:</strong> Modal captures visitor role (recruiter/collaborator/browsing), goal, and referral source. Data persists to Supabase + localStorage for dual reliability.
+                </li>
+                <li>
+                  <strong>Data Model:</strong> Postgres schema with visitors, preferences, events, chat_sessions, and chat_messages tables. Includes SQL views for conversion funnels and engagement metrics.
+                </li>
+                <li>
+                  <strong>Analytics Dashboard:</strong> Protected route (/dashboard) showing 7-day metrics: visitor count, onboarding completion rate, conversion funnels by role, chat engagement, and event tracking.
+                </li>
+                <li>
+                  <strong>Event Tracking:</strong> Captures onboarding_completed, resume_clicked, contact_clicked, chat_opened, chat_message_sent, and more. All timestamped with visitor_id for cohort analysis.
+                </li>
+              </ul>
+            ) : null}
 
             {/* Extra detail only for the website project */}
             {p.title.includes("FrankThaingtham.com") ? (
