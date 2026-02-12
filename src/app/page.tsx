@@ -57,7 +57,7 @@ export default function HomePage() {
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 10 }}>
               <TrackableLink
-                href="/resume.pdf"
+                href="/Frank-Thaingtham-Resume.pdf"
                 eventName="resume_clicked"
                 style={{ textDecoration: "underline" }}
               >
