@@ -36,7 +36,7 @@ export default function ContactPage() {
         </p>
 
         <p style={{ margin: "0 0 10px" }}>
-          <strong>Instagram (main):</strong>{" "}
+          <strong>Instagram:</strong>{" "}
           <a
             href="https://www.instagram.com/frankthaingthams"
             target="_blank"
