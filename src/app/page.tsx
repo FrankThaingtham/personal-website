@@ -1,5 +1,5 @@
 import PhotoShuffle from "@/components/PhotoShuffle";
-import TrackableLink from '@/components/TrackableLink';
+import TrackableLink from "@/components/TrackableLink";
 
 export default function HomePage() {
   return (
@@ -7,8 +7,9 @@ export default function HomePage() {
       <h1 className="h1">Hi, I’m Frank.</h1>
 
       <p className="p">
-        I’m learning and building things I genuinely find interesting. I love analytics, finance, technology, and software — but most of all, I love learning. I share what I’m building, what I’m learning, and what I’m thinking about along the way. If you want to connect, feel free to{" "}
-        <a href="/contact">reach out</a>.
+        I’m learning and building things I genuinely find interesting. I love analytics, finance, technology, and
+        software — but most of all, I love learning. I share what I’m building, what I’m learning, and what I’m thinking
+        about along the way. If you want to connect, feel free to <a href="/contact">reach out</a>.
       </p>
 
       <PhotoShuffle />
@@ -24,36 +25,28 @@ export default function HomePage() {
             alignItems: "start",
           }}
         >
-          {/* Left: your existing list */}
           <ul style={{ lineHeight: 1.9, paddingLeft: 18, marginTop: 0 }}>
             <li>
-              <a href="/about">About</a>{" "}
-              <span style={{ color: "var(--muted)" }}>— my background + links</span>
+              <a href="/about">About</a> <span style={{ color: "var(--muted)" }}>— my background + links</span>
             </li>
             <li>
-              <a href="/projects">Projects</a>{" "}
-              <span style={{ color: "var(--muted)" }}>— things I’ve built</span>
+              <a href="/projects">Projects</a> <span style={{ color: "var(--muted)" }}>— things I’ve built</span>
             </li>
             <li>
-              <a href="/research">Research</a>{" "}
-              <span style={{ color: "var(--muted)" }}>— valuations and notes</span>
+              <a href="/research">Research</a> <span style={{ color: "var(--muted)" }}>— valuations and notes</span>
             </li>
             <li>
-              <a href="/reading">Reading</a>{" "}
-              <span style={{ color: "var(--muted)" }}>— books + takeaways</span>
+              <a href="/reading">Reading</a> <span style={{ color: "var(--muted)" }}>— books + takeaways</span>
             </li>
             <li>
-              <a href="/blog">Blog</a>{" "}
-              <span style={{ color: "var(--muted)" }}>— longer writing</span>
+              <a href="/blog">Blog</a> <span style={{ color: "var(--muted)" }}>— longer writing</span>
             </li>
           </ul>
 
-          {/* Right: quick card */}
           <div className="card" style={{ lineHeight: 1.7 }}>
-            <div style={{ fontWeight: 800, marginBottom: 6 }}>Quick links</div>
-            <div style={{ color: "var(--muted)", marginBottom: 12 }}>
-              Analytics + finance + software.
-            </div>
+            <div style={{ fontWeight: 800, marginBottom: 6, color: "var(--accent)", fontSize: 18 }}>
+              Quick links </div>
+            <div style={{ color: "var(--muted)", marginBottom: 12 }}>Analytics + finance + software.</div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 10 }}>
               <TrackableLink
@@ -63,16 +56,27 @@ export default function HomePage() {
               >
                 Resume
               </TrackableLink>
-              <a href="https://github.com/frankthaingtham" target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
+              <a
+                href="https://github.com/frankthaingtham"
+                target="_blank"
+                rel="noreferrer"
+                style={{ fontWeight: 700 }}
+              >
                 GitHub →
               </a>
-              <a href="https://www.linkedin.com/in/frankthaingtham" target="_blank" rel="noreferrer" style={{ fontWeight: 700 }}>
+              <a
+                href="https://www.linkedin.com/in/frankthaingtham"
+                target="_blank"
+                rel="noreferrer"
+                style={{ fontWeight: 700 }}
+              >
                 LinkedIn →
               </a>
             </div>
 
             <div style={{ color: "var(--muted)", fontSize: 13 }}>
-              <span style={{ fontWeight: 700, color: "inherit" }}>Now:</span> shipping this site + building portfolio projects.
+              <span style={{ fontWeight: 700, color: "inherit" }}>Now:</span> shipping this site + building portfolio
+              projects.
             </div>
           </div>
         </div>
@@ -82,7 +86,6 @@ export default function HomePage() {
         <h2 className="h2">Featured Work</h2>
 
         <div className="grid" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
-          {/* Featured item #1 */}
           <div className="card">
             <h3 style={{ margin: "0 0 8px", fontSize: 18 }}>DCF Valuation Writeup</h3>
             <p style={{ margin: "0 0 12px", color: "var(--muted)", lineHeight: 1.6 }}>
@@ -111,7 +114,6 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Featured item #2 */}
           <div className="card">
             <h3 style={{ margin: "0 0 8px", fontSize: 18 }}>Personal Website (Next.js + Cloudflare)</h3>
             <p style={{ margin: "0 0 12px", color: "var(--muted)", lineHeight: 1.6 }}>
@@ -168,38 +170,16 @@ export default function HomePage() {
 
         <div className="grid" style={{ gap: 12 }}>
           <div className="card">
-            <a href="/research" style={{ fontWeight: 700 }}>
-              How I think about DCF assumptions (and what can go wrong) →
-            </a>
-            <div style={{ color: "var(--muted)", marginTop: 6, lineHeight: 1.6 }}>
-              A simple framework for growth, margins, and discount rates—plus the failure modes I watch for.
-            </div>
-            <div style={{ color: "var(--muted)", fontSize: 12, marginTop: 8 }}>
-              Research • Feb 2026
-            </div>
-          </div>
-
-          <div className="card">
-            <a href="/projects" style={{ fontWeight: 700 }}>
-              Building this site on Cloudflare Pages (what I learned) →
-            </a>
-            <div style={{ color: "var(--muted)", marginTop: 6, lineHeight: 1.6 }}>
-              A quick build log: layout, theme controls, image vault, and deployment gotchas.
-            </div>
-            <div style={{ color: "var(--muted)", fontSize: 12, marginTop: 8 }}>
-              Build Log • Feb 2026
-            </div>
-          </div>
-
-          <div className="card">
             <a href="/blog" style={{ fontWeight: 700 }}>
-              Learning in public without losing focus →
+              Breakup, optimization, and regret →
             </a>
             <div style={{ color: "var(--muted)", marginTop: 6, lineHeight: 1.6 }}>
-              How I document progress, choose projects, and keep momentum week to week.
+              I’ve always tried to optimize everything; decisions, routes, even what to say. It feels like the safest way
+              to move through life. But after my breakup, I’m starting to wonder if always chasing the most logical answer
+              (even with ChatGPT) is making me miss the messy part of life that I actually need to feel and learn from.
             </div>
             <div style={{ color: "var(--muted)", fontSize: 12, marginTop: 8 }}>
-              Blog • Feb 2026
+              Blog • Feb 4, 2026
             </div>
           </div>
         </div>

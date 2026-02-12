@@ -220,3 +220,13 @@ a {
   opacity: 1;
 }
 
+.quickLink {
+  color: var(--link); /* or whatever your site uses */
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quickLink:hover {
+  opacity: 0.85;
+}
