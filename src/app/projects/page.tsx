@@ -62,6 +62,15 @@ const projects: Project[] = [
     tags: ["Python", "Pandas", "scikit-learn", "Jupyter", "Sports Analytics"],
     href: "https://github.com/FrankThaingtham/triangle-acc-spread-model/tree/main",
   },
+
+  // ✅ Job Tracker (added, same format)
+  {
+    title: "Job Tracker — Next.js App",
+    description:
+      "Bootstrapped a Next.js app (create-next-app) as the foundation for a job search tracking tool.",
+    tags: ["Next.js", "TypeScript", "App Router", "ESLint", "create-next-app"],
+    href: "https://github.com/FrankThaingtham/job-tracker",
+  },
 ];
 
 export default function ProjectsPage() {
@@ -147,16 +156,25 @@ export default function ProjectsPage() {
                 }}
               >
                 <li>
-                  <strong>AI Architecture:</strong> OpenAI Assistants API with file_search tool, vector store with 6 knowledge base files (about, projects, roles, FAQ, blog excerpts, voice examples).
+                  <strong>AI Architecture:</strong> OpenAI Assistants API with
+                  file_search tool, vector store with 6 knowledge base files
+                  (about, projects, roles, FAQ, blog excerpts, voice examples).
                 </li>
                 <li>
-                  <strong>Adaptive Voice:</strong> Two response modes (recruiter: professional/concise, casual: friendly/conversational) based on onboarding data.
+                  <strong>Adaptive Voice:</strong> Two response modes
+                  (recruiter: professional/concise, casual:
+                  friendly/conversational) based on onboarding data.
                 </li>
                 <li>
-                  <strong>Smart Features:</strong> Confidence scoring (high/medium/low), next-action buttons (View Projects, Resume, Contact), fallback to phone contact for low-confidence responses.
+                  <strong>Smart Features:</strong> Confidence scoring
+                  (high/medium/low), next-action buttons (View Projects, Resume,
+                  Contact), fallback to phone contact for low-confidence
+                  responses.
                 </li>
                 <li>
-                  <strong>Persistence:</strong> Chat sessions and message history stored in Supabase, conversation context limited to last 12 messages for cost efficiency.
+                  <strong>Persistence:</strong> Chat sessions and message
+                  history stored in Supabase, conversation context limited to
+                  last 12 messages for cost efficiency.
                 </li>
               </ul>
             ) : null}
@@ -171,16 +189,27 @@ export default function ProjectsPage() {
                 }}
               >
                 <li>
-                  <strong>Onboarding Flow:</strong> Modal captures visitor role (recruiter/collaborator/browsing), goal, and referral source. Data persists to Supabase + localStorage for dual reliability.
+                  <strong>Onboarding Flow:</strong> Modal captures visitor role
+                  (recruiter/collaborator/browsing), goal, and referral source.
+                  Data persists to Supabase + localStorage for dual reliability.
                 </li>
                 <li>
-                  <strong>Data Model:</strong> Postgres schema with visitors, preferences, events, chat_sessions, and chat_messages tables. Includes SQL views for conversion funnels and engagement metrics.
+                  <strong>Data Model:</strong> Postgres schema with visitors,
+                  preferences, events, chat_sessions, and chat_messages tables.
+                  Includes SQL views for conversion funnels and engagement
+                  metrics.
                 </li>
                 <li>
-                  <strong>Analytics Dashboard:</strong> Protected route (/dashboard) showing 7-day metrics: visitor count, onboarding completion rate, conversion funnels by role, chat engagement, and event tracking.
+                  <strong>Analytics Dashboard:</strong> Protected route
+                  (/dashboard) showing 7-day metrics: visitor count, onboarding
+                  completion rate, conversion funnels by role, chat engagement,
+                  and event tracking.
                 </li>
                 <li>
-                  <strong>Event Tracking:</strong> Captures onboarding_completed, resume_clicked, contact_clicked, chat_opened, chat_message_sent, and more. All timestamped with visitor_id for cohort analysis.
+                  <strong>Event Tracking:</strong> Captures
+                  onboarding_completed, resume_clicked, contact_clicked,
+                  chat_opened, chat_message_sent, and more. All timestamped with
+                  visitor_id for cohort analysis.
                 </li>
               </ul>
             ) : null}
@@ -258,6 +287,35 @@ export default function ProjectsPage() {
                 <li>
                   <strong>Outputs:</strong> saved models (.joblib) + 2026
                   prediction CSVs (optionally with intervals / uncertainty).
+                </li>
+              </ul>
+            ) : null}
+
+            {/* ✅ Extra detail only for the Job Tracker project */}
+            {p.title.includes("Job Tracker") ? (
+              <ul
+                style={{
+                  margin: "0 0 12px 18px",
+                  color: "var(--muted)",
+                  lineHeight: 1.6,
+                }}
+              >
+                <li>
+                  <strong>Foundation:</strong> Next.js project bootstrapped with
+                  create-next-app; edit entrypoint via <code>app/page.tsx</code>.
+                </li>
+                <li>
+                  <strong>Structure:</strong> App Router setup under{" "}
+                  <code>src/app</code> with standard Next.js config files
+                  (e.g., <code>next.config.ts</code>, <code>tsconfig.json</code>).
+                </li>
+                <li>
+                  <strong>Dev workflow:</strong> Local dev server via{" "}
+                  <code>npm run dev</code> with fast iteration and auto-reload.
+                </li>
+                <li>
+                  <strong>Code quality:</strong> ESLint configured to enforce
+                  consistent standards as the project grows.
                 </li>
               </ul>
             ) : null}
