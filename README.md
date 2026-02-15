@@ -255,24 +255,6 @@ Add all `.env.local` variables to Cloudflare Pages settings.
 
 ---
 
-## Interview Talking Points
-
-**"I built a complete AI-powered portfolio site with visitor intelligence:"**
-
-1. **Onboarding System:** Captures visitor intent (recruiter vs collaborator) in a modal, stores in Supabase + localStorage for reliability
-
-2. **AI Chatbot:** OpenAI Assistants API with RAG searches my knowledge base (resume, projects, blog). Adapts tone based on visitor type and includes confidence scoring with smart fallbacks
-
-3. **Analytics Pipeline:** Full event tracking with conversion funnels, role segmentation, and a protected dashboard showing 7-day engagement metrics
-
-**Tech Stack:** Next.js 15, TypeScript, OpenAI Assistants API, Supabase (Postgres), Cloudflare Pages
-
-**Architecture:** Serverless edge functions, static generation, real-time event tracking, RAG with vector store
-
-This demonstrates: AI integration, database design, analytics engineering, full-stack development, and product thinking.
-
----
-
 ## License
 
 All site content is © Frank Thaingtham unless otherwise noted.
