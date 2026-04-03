@@ -55,60 +55,39 @@ export default function RootLayout({
               zIndex: 50,
               backgroundColor: "var(--bg)",
               borderBottom: "1px solid var(--border)",
+              backdropFilter: "blur(8px)",
             }}
           >
             <nav
               className="nav"
               style={{
-                maxWidth: 980,
+                maxWidth: 1000,
                 margin: "0 auto",
-                padding: "14px 18px",
-                display: "flex",
-                gap: 12,
-                alignItems: "center",
-                flexWrap: "wrap",
+                padding: "12px 24px",
               }}
             >
-              <a
-                href="/"
-                style={{
-                  fontWeight: 800,
-                  textDecoration: "none",
-                  color: "var(--accent)",
-                  marginRight: 6,
-                }}
-              >
-                Home
+              <a href="/" className="logo">
+                Frank.
               </a>
 
-              <a href="/about" style={{ textDecoration: "none", color: "var(--accent)" }}>
-                About
-              </a>
-              <a href="/projects" style={{ textDecoration: "none", color: "var(--accent)" }}>
-                Projects
-              </a>
-              <a href="/research" style={{ textDecoration: "none", color: "var(--accent)" }}>
-                Research
-              </a>
-              <a href="/reading" style={{ textDecoration: "none", color: "var(--accent)" }}>
-                Reading
-              </a>
-              <a href="/blog" style={{ textDecoration: "none", color: "var(--accent)" }}>
-                Blog
-              </a>
-              <a href="/contact" style={{ textDecoration: "none", color: "var(--accent)" }}>
-                Contact
-              </a>
+              <a href="/about">About</a>
+              <a href="/projects">Projects</a>
+              <a href="/research">Research</a>
+              <a href="/reading">Reading</a>
+              <a href="/blog">Blog</a>
+              <a href="/contact">Contact</a>
 
-              <ThemeControls />
+              <div style={{ marginLeft: "auto" }}>
+                <ThemeControls />
+              </div>
             </nav>
           </header>
 
           <main
             style={{
-              maxWidth: 980,
+              maxWidth: 1000,
               margin: "0 auto",
-              padding: "28px 18px",
+              padding: "40px 24px",
               width: "100%",
               flex: 1,
             }}
@@ -119,47 +98,37 @@ export default function RootLayout({
           <footer
             style={{
               borderTop: "1px solid var(--border)",
-              marginTop: 40,
+              marginTop: 60,
               flexShrink: 0,
             }}
           >
             <div
               style={{
-                maxWidth: 980,
+                maxWidth: 1000,
                 margin: "0 auto",
-                padding: "18px",
+                padding: "24px",
                 fontSize: 14,
                 color: "var(--muted)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                gap: 12,
+                gap: 16,
                 flexWrap: "wrap",
               }}
             >
-              <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-                <a href="mailto:frankthaingtham@hotmail.com" style={{ textDecoration: "underline" }}>
-                  Email
-                </a>
-                <a
-                  href="https://github.com/frankthaingtham"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ textDecoration: "underline" }}
-                >
+              <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+                <a href="mailto:frankthaingtham@gmail.com">Email</a>
+                <a href="https://github.com/frankthaingtham" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/frankthaingtham/"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ textDecoration: "underline" }}
-                >
+                <a href="https://www.linkedin.com/in/frankthaingtham/" target="_blank" rel="noreferrer">
                   LinkedIn
                 </a>
               </div>
 
-              <div>© {new Date().getFullYear()} Frank – Built with Next.js + TypeScript + Cloudflare Pages.</div>
+              <div style={{ color: "var(--muted)" }}>
+                © {new Date().getFullYear()} Frank Thaingtham
+              </div>
             </div>
           </footer>
 

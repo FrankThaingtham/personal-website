@@ -3,28 +3,25 @@ export default function AboutPage() {
     <>
       <h1 className="h1">About</h1>
 
-      {/* 1) Narrative Intro (Story) */}
-      <section style={{ marginTop: 18 }}>
+      <section style={{ marginTop: 24 }}>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "clamp(120px, 18vw, 170px) 1fr",
-            gap: 18,
+            gridTemplateColumns: "clamp(140px, 20vw, 180px) 1fr",
+            gap: 28,
             alignItems: "start",
           }}
         >
-          {/* Headshot (small, left) */}
           <div
             style={{
-              width: "clamp(120px, 18vw, 170px)",
-              height: "clamp(190px, 26vw, 260px)",
-              borderRadius: 18,
+              width: "clamp(140px, 20vw, 180px)",
+              aspectRatio: "3 / 4",
+              borderRadius: 16,
               border: "1px solid var(--border)",
               overflow: "hidden",
-              background: "rgba(255,255,255,0.03)",
+              background: "var(--card-bg)",
             }}
           >
-            {/* Put your headshot here: /public/headshot.webp (or .jpg) */}
             <img
               src="/headshot.webp"
               alt="Frank Thaingtham"
@@ -32,141 +29,101 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Story (right) */}
           <div>
-            <p className="p" style={{ marginBottom: 12 }}>
-              My name is Roengrit Thaingtham, but I go by <span style={{ fontWeight: 700 }}>Frank</span>. I’m graduating soon
-              from the <span style={{ fontWeight: 700 }}>University of North Carolina at Chapel Hill</span> with a B.S. in{" "}
-              <span style={{ fontWeight: 700 }}>Statistics & Analytics</span>.
+            <p className="p" style={{ marginBottom: 14 }}>
+              My name is Roengrit Thaingtham, but I go by <span style={{ fontWeight: 600 }}>Frank</span>. I&apos;m graduating soon
+              from the <span style={{ fontWeight: 600 }}>University of North Carolina at Chapel Hill</span> with a B.S. in{" "}
+              <span style={{ fontWeight: 600 }}>Statistics &amp; Analytics</span>.
             </p>
 
-            <p className="p" style={{ marginBottom: 12 }}>
-              I was born and raised in <span style={{ fontWeight: 700 }}>Thailand</span>, and I moved to the{" "}
-              <span style={{ fontWeight: 700 }}>U.S.</span> around age 12. That dual perspective shaped how I see people, markets,
-              and technology — what feels “normal” in one place isn’t always true somewhere else.
+            <p className="p" style={{ marginBottom: 14 }}>
+              I was born and raised in <span style={{ fontWeight: 600 }}>Thailand</span>, and I moved to the{" "}
+              <span style={{ fontWeight: 600 }}>U.S.</span> around age 12. That dual perspective shaped how I see people, markets,
+              and technology — what feels &quot;normal&quot; in one place isn&apos;t always true somewhere else.
             </p>
 
-            <p className="p" style={{ marginBottom: 12 }}>
+            <p className="p" style={{ marginBottom: 0 }}>
               College challenged me in a way life never had before. I had to learn how to support myself financially, and I
-              worked through some personal struggles along the way. I’m not perfect — I’ve made mistakes — but I’m a{" "}
-              <span style={{ fontWeight: 700 }}>learner</span>, and I care about getting better.
+              worked through some personal struggles along the way. I&apos;m not perfect — I&apos;ve made mistakes — but I&apos;m a{" "}
+              <span style={{ fontWeight: 600 }}>learner</span>, and I care about getting better.
             </p>
-
           </div>
         </div>
       </section>
-      {/* 2) The Intersection (Niche) */}
-      <section style={{ marginTop: 26 }}>
-        <h2 className="h2">What I’m interested in</h2>
+
+      <div className="section-divider" />
+
+      <section>
+        <h2 className="h2">What I&apos;m interested in</h2>
 
         <div className="card">
           <p className="p" style={{ margin: 0, maxWidth: "none" }}>
-            I’m most interested in the intersection of{" "}
-            <span style={{ fontWeight: 700 }}>analysis</span>,{" "}
-            <span style={{ fontWeight: 700 }}>technology</span>, and{" "}
-            <span style={{ fontWeight: 700 }}>finance</span>.
-            Coming from a low-income background where my parents didn’t have much financial knowledge, learning personal
+            I&apos;m most interested in the intersection of{" "}
+            <span style={{ fontWeight: 600 }}>analysis</span>,{" "}
+            <span style={{ fontWeight: 600 }}>technology</span>, and{" "}
+            <span style={{ fontWeight: 600 }}>finance</span>.
+            Coming from a low-income background where my parents didn&apos;t have much financial knowledge, learning personal
             finance was a turning point for me — it pulled me into finance and made me want to understand how money,
             incentives, and markets really work.
           </p>
 
-          <p className="p" style={{ marginTop: 12, marginBottom: 0, maxWidth: "none" }}>
+          <p className="p" style={{ marginTop: 14, marginBottom: 0, maxWidth: "none" }}>
             Technology has also been a big part of my life. I grew up playing a lot of games, and over time I became more
             curious about what technology can enable — and how to build it. And because life is ultimately a series of
-            decisions, I’m drawn to analytics as a way to think more clearly, reduce bias, and make better bets over time.
-          </p>
-
-          <p className="p" style={{ marginTop: 12, marginBottom: 0, maxWidth: "none" }}>
-            I don’t know exactly where the wind will blow, but I do know this: I’ll keep adapting, learning, and not giving
-            up.
+            decisions, I&apos;m drawn to analytics as a way to think more clearly, reduce bias, and make better bets over time.
           </p>
         </div>
       </section>
 
-      {/* 3) Tech & Finance Stack (Toolkit) */}
-      <section style={{ marginTop: 26 }}>
+      <div className="section-divider" />
+
+      <section>
         <h2 className="h2">Toolkit</h2>
 
         <div
           className="grid"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 12,
+            gap: 16,
           }}
         >
-          {/* Development */}
           <div className="card">
-            <div style={{ fontWeight: 800, marginBottom: 10 }}>Development</div>
+            <div style={{ fontWeight: 600, marginBottom: 12, fontSize: 15 }}>Development</div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
               {["React", "Next.js", "TypeScript", "JavaScript", "Python"].map((t) => (
-                <span
-                  key={t}
-                  style={{
-                    border: "1px solid var(--border)",
-                    borderRadius: 999,
-                    padding: "4px 10px",
-                    fontSize: 12,
-                    color: "var(--muted)",
-                  }}
-                >
-                  {t}
-                </span>
+                <span key={t} className="tag">{t}</span>
               ))}
             </div>
           </div>
 
-          {/* Finance / Math */}
           <div className="card">
-            <div style={{ fontWeight: 800, marginBottom: 10 }}>Finance / Math</div>
+            <div style={{ fontWeight: 600, marginBottom: 12, fontSize: 15 }}>Finance / Math</div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {["DCF modeling", "Valuation", "Probability", "Time series (AR(1))", "Optimization intuition"].map((t) => (
-                <span
-                  key={t}
-                  style={{
-                    border: "1px solid var(--border)",
-                    borderRadius: 999,
-                    padding: "4px 10px",
-                    fontSize: 12,
-                    color: "var(--muted)",
-                  }}
-                >
-                  {t}
-                </span>
+              {["DCF modeling", "Valuation", "Probability", "Time series", "Optimization"].map((t) => (
+                <span key={t} className="tag">{t}</span>
               ))}
             </div>
           </div>
 
-          {/* Tools */}
           <div className="card">
-            <div style={{ fontWeight: 800, marginBottom: 10 }}>Tools</div>
+            <div style={{ fontWeight: 600, marginBottom: 12, fontSize: 15 }}>Tools</div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {["SQL", "R", "Google Sheets (advanced)", "Git/GitHub", "Cloudflare Pages"].map((t) => (
-                <span
-                  key={t}
-                  style={{
-                    border: "1px solid var(--border)",
-                    borderRadius: 999,
-                    padding: "4px 10px",
-                    fontSize: 12,
-                    color: "var(--muted)",
-                  }}
-                >
-                  {t}
-                </span>
+              {["SQL", "R", "Google Sheets", "Git/GitHub", "Cloudflare Pages"].map((t) => (
+                <span key={t} className="tag">{t}</span>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4) Personal Interests (Human Factor) */}
-      <section style={{ marginTop: 26 }}>
+      <div className="section-divider" />
+
+      <section>
         <h2 className="h2">Outside of work</h2>
 
         <div className="card">
-          <p className="p" style={{ marginTop: 0, marginBottom: 14 }}>
-            Outside of projects, I like staying active, competing, and exploring new places — it keeps me disciplined and
-            sharp.
+          <p className="p" style={{ marginTop: 0, marginBottom: 16 }}>
+            Outside of projects, I like staying active, competing, and exploring new places — it keeps me disciplined and sharp.
           </p>
 
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -183,49 +140,39 @@ export default function AboutPage() {
               "Exploring",
               "Socializing",
             ].map((t) => (
-              <span
-                key={t}
-                style={{
-                  border: "1px solid var(--border)",
-                  borderRadius: 999,
-                  padding: "4px 10px",
-                  fontSize: 12,
-                  color: "var(--muted)",
-                }}
-              >
-                {t}
-              </span>
+              <span key={t} className="tag">{t}</span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5) Timeline / Milestones */}
-      <section style={{ marginTop: 26 }}>
+      <div className="section-divider" />
+
+      <section>
         <h2 className="h2">Timeline</h2>
 
         <div className="card">
-          <div style={{ display: "grid", gap: 14 }}>
+          <div style={{ display: "grid", gap: 16 }}>
             {[
               {
                 when: "2026",
                 title: "Graduating — UNC–Chapel Hill (B.S. Statistics & Analytics)",
-                desc: "Coursework includes Probability, Time Series, Regression, Data Analysis, and applied analytics projects. Building projects across analytics, finance, and software while preparing for analyst roles.",
+                desc: "Coursework includes Probability, Time Series, Regression, Data Analysis, and applied analytics projects.",
               },
               {
                 when: "2025",
                 title: "Studied abroad — Yonsei University (Korea)",
-                desc: "Lived and studied in Seoul, which expanded my perspective on culture, markets, and how technology shapes everyday life.",
+                desc: "Lived and studied in Seoul, expanding my perspective on culture, markets, and technology.",
               },
               {
                 when: "2025",
                 title: "Technology Analyst Intern — Parexel",
-                desc: "Worked on technology-focused projects and learned how large organizations operate and deliver.",
+                desc: "Worked on technology-focused projects and learned how large organizations operate.",
               },
               {
                 when: "2024",
                 title: "Returned to Thailand + ordained as a monk (10 days)",
-                desc: "Went back to Thailand for the first time in 10 years. The experience strengthened my discipline, reflection, and perspective on what matters.",
+                desc: "Went back to Thailand for the first time in 10 years. The experience strengthened my discipline and perspective.",
               },
               {
                 when: "2023",
@@ -240,17 +187,12 @@ export default function AboutPage() {
               {
                 when: "2022",
                 title: "Started at UNC–Chapel Hill",
-                desc: "Entered college exploring business and computer science, but early setbacks pushed me to re-evaluate. I found my fit in Statistics & Analytics — a path that matched how I think: structured, quantitative, and decision-focused.",
+                desc: "Found my fit in Statistics & Analytics — a path that matched how I think: structured, quantitative, and decision-focused.",
               },
               {
                 when: "2022",
                 title: "Graduated high school",
                 desc: "Took the next step into college while continuing to work and support myself.",
-              },
-              {
-                when: "2022",
-                title: "State Farm Insurance Agent Office",
-                desc: "Customer-facing work that improved communication, responsibility, and day-to-day professionalism.",
               },
               {
                 when: "2021",
@@ -267,15 +209,15 @@ export default function AboutPage() {
                 title: "Online Grocery Pickup",
                 desc: "Started working during COVID — learned discipline, pace, and responsibility early.",
               },
-               {
+              {
                 when: "2015",
                 title: "Moved to Burlington, North Carolina",
                 desc: "Settled in NC around fifth grade and built my foundation there.",
               },
               {
                 when: "2013",
-                title: "Moved from Thailand to the United States (Miami, FL)",
-                desc: "Immigrated and began adapting to a new environment and culture — a turning point in how I view opportunity.",
+                title: "Moved from Thailand to the United States",
+                desc: "Immigrated and began adapting to a new environment and culture.",
               },
               {
                 when: "2003",
@@ -287,15 +229,15 @@ export default function AboutPage() {
                 key={`${x.when}-${x.title}`}
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "110px 1fr",
-                  gap: 14,
+                  gridTemplateColumns: "80px 1fr",
+                  gap: 16,
                   alignItems: "start",
                 }}
               >
-                <div style={{ color: "var(--muted)", fontWeight: 700 }}>{x.when}</div>
+                <div style={{ color: "var(--muted)", fontWeight: 600, fontSize: 14 }}>{x.when}</div>
                 <div>
-                  <div style={{ fontWeight: 800 }}>{x.title}</div>
-                  <div style={{ color: "var(--muted)", marginTop: 4, lineHeight: 1.6 }}>
+                  <div style={{ fontWeight: 600, fontSize: 15 }}>{x.title}</div>
+                  <div style={{ color: "var(--muted)", marginTop: 4, lineHeight: 1.6, fontSize: 14 }}>
                     {x.desc}
                   </div>
                 </div>
